@@ -13,12 +13,18 @@
 <body>
 
     <div id="app">
-        <div class="start-screen d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
-            <h1 class="mb-4 fw-bold text-primary">Witaj w Loterii z Pyscript!</h1>
+        <div id="loading-screen" class="d-flex justify-content-center align-items-center vh-100 bg-light">
+            <div class="spinner-border text-primary" role="status" style="width: 4rem; height: 4rem;">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+
+        <div id="start-button-container" class="d-none text-center mt-5">
             <button id="play-btn" class="btn btn-lg btn-primary px-5 shadow rounded-pill">
                 ZAGRAJ
             </button>
         </div>
+
 
         <div class="selection-screen container d-none py-5">
             <h2 class="mb-4 text-center text-primary fw-bold">Wybierz 6 różnych szczęśliwych liczb (1-49):</h2>

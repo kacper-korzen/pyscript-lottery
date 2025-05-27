@@ -34,9 +34,9 @@ Została zbudowana wyłącznie z HTML, CSS i Python (przez PyScript), co czyni j
 
 ## 📸 Zrzuty ekranu
 
-_(Dodaj własne screeny do folderu `img/` lub zmień ścieżkę poniżej)_
 
-![Zrzut ekranu](img/app-screen.png)
+
+![Zrzut ekranu](img/start-screen.png)
 
 ---
 

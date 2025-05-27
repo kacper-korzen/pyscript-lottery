@@ -26,7 +26,7 @@ Została zbudowana wyłącznie z HTML, CSS i Python (przez PyScript), co czyni j
 
 ## 🧪 Demo
 
-[**Live Demo**](https://kacper-korzen.github.io/pyscript/) 
+[**Live Demo**](https://kacper-korzen.github.io/pyscript-lottery/) 
 
 
 

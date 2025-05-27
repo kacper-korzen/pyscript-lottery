@@ -19,9 +19,10 @@ startDiv = d.querySelector(".start-screen")
 
 
 def onClickStart(e):
-    selectionDiv.style.display = "block"
     startDiv.classList.remove("d-flex")
     startDiv.classList.add("d-none")
+    selectionDiv.classList.remove("d-none")
+    selectionDiv.classList.add("d-flex,flex-column")
 
 
 playBtn.onclick = onClickStart

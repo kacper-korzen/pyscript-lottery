@@ -33,18 +33,20 @@
 
             <br>
             <div class="text-center">
-                <button id="draw-btn" class="btn btn-success btn-lg px-5" disabled>Losuj</button>
+                <button id="draw-btn" class="btn btn-success btn-lg px-5">Losuj</button>
             </div>
         </div>
 
 
-        <div class="result-screen" style="display:none">
-            <h2>Twoje liczby</h2>
-            <div id="draw-animation">
-
+        <div class="result-screen container d-none py-5 text-center">
+            <h2 class="mb-4 text-primary fw-bold">Twoje liczby</h2>
+            <div id="draw-animation" class="mb-4">
             </div>
-            <div id="win-message" style="display:none">Wygrałeś!</div>
+            <div id="win-message" class="alert alert-success d-none" role="alert" style="font-size: 1.25rem;">
+                Wygrałeś!
+            </div>
         </div>
+
 
     </div>
 

@@ -104,11 +104,11 @@ def showDrawing():
                 rand_num = randint(1, 49)
                 span.textContent = str(rand_num)
                 count += 1
-                showRandom = create_proxy(show_random)
+                showRandom = create_once_callable(show_random)
                 setTimeout(showRandom, 300)
             else:
                 span.textContent = str(final_numbers[index])
-                showDrawingProxy = create_proxy(lambda: animate_number(index + 1))
+                showDrawingProxy = create_once_callable(lambda: animate_number(index + 1))
                 setTimeout(showDrawingProxy, 300)
 
         show_random()

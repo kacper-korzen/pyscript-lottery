@@ -11,36 +11,31 @@
 </head>
 <body>
 
-<div id="app">
-    <div class="start-screen d-flex flex-column justify-content-center align-items-center vh-100 bg-light">
-        <h1 class="mb-4 fw-bold text-primary">Witaj w Loterii z PyScript!</h1>
-        <button id="play-btn" class="btn btn-lg btn-primary px-5 shadow rounded-pill">
-            ZAGRAJ
-        </button>
+<div id="app">  
+    <div class="selection-screen container py-5 d-flex flex-column align-items-center" style="min-height: 90vh;">
+    <h1 class="mb-5 fw-bold text-primary text-center display-4">Witaj w Loterii z PyScript!</h1>
+    <h2 class="mb-5 text-center text-primary fw-bold fs-3">Wpisz 6 różnych szczęśliwych liczb (1-49):</h2>
+
+    <div class="number-inputs d-flex flex-row flex-wrap justify-content-center gap-4 mb-5">
+        <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="1"
+               class="form-control rounded-pill text-center fs-4" style="width: 70px; height: 70px;" />
+        <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="2"
+               class="form-control rounded-pill text-center fs-4" style="width: 70px; height: 70px;" />
+        <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="3"
+               class="form-control rounded-pill text-center fs-4" style="width: 70px; height: 70px;" />
+        <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="4"
+               class="form-control rounded-pill text-center fs-4" style="width: 70px; height: 70px;" />
+        <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="5"
+               class="form-control rounded-pill text-center fs-4" style="width: 70px; height: 70px;" />
+        <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="6"
+               class="form-control rounded-pill text-center fs-4" style="width: 70px; height: 70px;" />
     </div>
 
-    <div class="selection-screen container d-none py-5 d-flex flex-column">
-        <h2 class="mb-4 text-center text-primary fw-bold">Wybierz 6 różnych szczęśliwych liczb (1-49):</h2>
-        <div class="number-inputs d-flex flex-row flex-nowrap justify-content-center gap-2">
-            <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="1"
-                   class="form-control rounded-pill text-center" style="width: 50px; min-width: 40px;" />
-            <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="2"
-                   class="form-control rounded-pill text-center" style="width: 50px; min-width: 40px;" />
-            <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="3"
-                   class="form-control rounded-pill text-center" style="width: 50px; min-width: 40px;" />
-            <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="4"
-                   class="form-control rounded-pill text-center" style="width: 50px; min-width: 40px;" />
-            <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="5"
-                   class="form-control rounded-pill text-center" style="width: 50px; min-width: 40px;" />
-            <input type="text" maxlength="2" pattern="\d{1,2}" inputmode="numeric" value="6"
-                   class="form-control rounded-pill text-center" style="width: 50px; min-width: 40px;" />
-        </div>
-
-        <br />
-        <div class="text-center">
-            <button id="draw-btn" class="btn btn-success btn-lg px-5">Losuj</button>
-        </div>
+    <div class="text-center mt-4">
+        <button id="draw-btn" class="btn btn-success btn-lg px-5 py-3 fs-4">🎲 Losuj</button>
     </div>
+</div>
+
 
     <div class="result-screen container d-none py-5 text-center">
         <h2 class="mb-4 text-primary fw-bold">Twoje liczby</h2>
@@ -55,8 +50,7 @@
         </div>
         
         <div id="draw-buttons" class="d-flex justify-content-center gap-3 d-none">
-            <button id="btn-redraw" class="btn btn-primary btn-sm">🔁 Losuj jeszcze raz</button>
-            <button id="btn-new-numbers" class="btn btn-secondary btn-sm">🔢 Nowe liczby</button>
+            <button id="btn-redraw" class="btn btn-primary btn-bg">🔁 Losuj jeszcze raz</button>
         </div>
 
 

@@ -4,7 +4,6 @@ from random import randint
 from pyodide.ffi import create_once_callable
 
 selectionDiv = d.querySelector(".selection-screen")
-# startDiv = d.querySelector(".start-screen")
 resultDiv = d.querySelector(".result-screen")
 drawAnimationDiv = d.querySelector("#draw-animation")
 drawResultDiv = d.querySelector("#draw-result")
@@ -19,17 +18,6 @@ redrawBtn = d.querySelector("#btn-redraw")
 pickedNumbers = set()
 randomNumbers = set()
 win = False
-
-
-# def onClickStart(e):
-#     startDiv.classList.add("d-none")
-#     startDiv.classList.remove("d-flex")
-#     selectionDiv.classList.remove("d-none")
-#     selectionDiv.classList.add("d-flex", "flex-column")
-
-
-# playBtn.onclick = onClickStart
-
 
 def is_int(value):
     try:
@@ -148,4 +136,11 @@ def showIfWin():
 
     drawBtnsDiv.classList.remove("d-none")
 
-#add redirections to screens with numbers and redraw
+
+def onClickNewNumbers(e):
+    resultDiv.classList.add('d-none')
+    selectionDiv.classList.remove('d-none')
+    drawBtnsDiv.classList.add("d-none")
+    drawResultDiv.classList.add("d-none")
+
+redrawBtn.onclick = onClickNewNumbers

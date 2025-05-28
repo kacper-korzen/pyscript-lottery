@@ -4,7 +4,7 @@ from random import randint
 from pyodide.ffi import create_once_callable
 
 selectionDiv = d.querySelector(".selection-screen")
-startDiv = d.querySelector(".start-screen")
+# startDiv = d.querySelector(".start-screen")
 resultDiv = d.querySelector(".result-screen")
 drawAnimationDiv = d.querySelector("#draw-animation")
 drawResultDiv = d.querySelector("#draw-result")
@@ -21,14 +21,14 @@ randomNumbers = set()
 win = False
 
 
-def onClickStart(e):
-    startDiv.classList.add("d-none")
-    startDiv.classList.remove("d-flex")
-    selectionDiv.classList.remove("d-none")
-    selectionDiv.classList.add("d-flex", "flex-column")
+# def onClickStart(e):
+#     startDiv.classList.add("d-none")
+#     startDiv.classList.remove("d-flex")
+#     selectionDiv.classList.remove("d-none")
+#     selectionDiv.classList.add("d-flex", "flex-column")
 
 
-playBtn.onclick = onClickStart
+# playBtn.onclick = onClickStart
 
 
 def is_int(value):

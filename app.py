@@ -1,18 +1,24 @@
 from pyscript import document as d
 from js import alert, setTimeout
 from random import randint
-from pyodide.ffi import create_proxy
-from time import sleep
+from pyodide.ffi import create_once_callable
 
 selectionDiv = d.querySelector(".selection-screen")
 startDiv = d.querySelector(".start-screen")
 resultDiv = d.querySelector(".result-screen")
 drawAnimationDiv = d.querySelector("#draw-animation")
+drawResultDiv = d.querySelector("#draw-result")
+winMesDiv = d.querySelector("#win-message")
+drawBtnsDiv = d.querySelector("#draw-buttons")
 
 playBtn = d.querySelector("#play-btn")
 drawBtn = d.querySelector("#draw-btn")
+newNumbersBtn = d.querySelector("#btn-new-numbers")
+redrawBtn = d.querySelector("#btn-redraw")
 
 pickedNumbers = set()
+randomNumbers = set()
+win = False
 
 
 def onClickStart(e):
@@ -57,8 +63,6 @@ def onClickSelection(e):
     resultDiv.classList.remove("d-none")
     showResult()
     showDrawing()
-    # showDrawingProxy = create_proxy(showDrawing)
-    # setTimeout(showDrawingProxy, 1000)
 
 
 drawBtn.onclick = onClickSelection
@@ -79,9 +83,11 @@ def showDrawing():
     drawDiv = d.querySelector("#draw-animation")
     drawDiv.innerHTML = ""
 
+    global randomNumbers
     randomNumbers = set()
     while len(randomNumbers) < 6:
         randomNumbers.add(randint(1, 49))
+
     final_numbers = sorted(randomNumbers)
 
     spans = []
@@ -108,9 +114,38 @@ def showDrawing():
                 setTimeout(showRandom, 300)
             else:
                 span.textContent = str(final_numbers[index])
-                showDrawingProxy = create_once_callable(lambda: animate_number(index + 1))
+                showDrawingProxy = create_once_callable(
+                    lambda: animate_number(index + 1)
+                )
                 setTimeout(showDrawingProxy, 300)
 
         show_random()
 
     animate_number(0)
+
+    checkWin()
+    winResult = create_once_callable(showIfWin)
+    setTimeout(winResult, 7500)
+
+
+def checkWin():
+    global win
+    count = 0
+
+    for num in pickedNumbers:
+        if num in randomNumbers:
+            count += 1
+
+    if count > 3:
+        win = True
+
+
+def showIfWin():
+    if win is True:
+        winMesDiv.classList.remove("d-none")
+    else:
+        drawResultDiv.classList.remove("d-none")
+
+    drawBtnsDiv.classList.remove("d-none")
+
+#add redirections to screens with numbers and redraw

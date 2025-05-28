@@ -1,10 +1,13 @@
 from pyscript import document as d
-from js import alert
-
+from js import alert, setTimeout
+from random import randint
+from pyodide.ffi import create_proxy
+from time import sleep
 
 selectionDiv = d.querySelector(".selection-screen")
 startDiv = d.querySelector(".start-screen")
 resultDiv = d.querySelector(".result-screen")
+drawAnimationDiv = d.querySelector("#draw-animation")
 
 playBtn = d.querySelector("#play-btn")
 drawBtn = d.querySelector("#draw-btn")
@@ -53,17 +56,61 @@ def onClickSelection(e):
     selectionDiv.classList.add("d-none")
     resultDiv.classList.remove("d-none")
     showResult()
+    showDrawing()
+    # showDrawingProxy = create_proxy(showDrawing)
+    # setTimeout(showDrawingProxy, 1000)
 
 
 drawBtn.onclick = onClickSelection
 
 
 def showResult():
-    draw_animation_div = d.querySelector("#draw-animation")
-    draw_animation_div.innerHTML = ""
+    pickedNumbersDiv = d.querySelector("#picked-numbers")
+    pickedNumbersDiv.innerHTML = ""
 
     for num in sorted(pickedNumbers):
         span = d.createElement("span")
         span.textContent = str(num)
         span.className = "badge rounded-pill bg-primary mx-1 fs-5"
-        draw_animation_div.appendChild(span)
+        pickedNumbersDiv.appendChild(span)
+
+
+def showDrawing():
+    drawDiv = d.querySelector("#draw-animation")
+    drawDiv.innerHTML = ""
+
+    randomNumbers = set()
+    while len(randomNumbers) < 6:
+        randomNumbers.add(randint(1, 49))
+    final_numbers = sorted(randomNumbers)
+
+    spans = []
+    for _ in range(6):
+        span = d.createElement("span")
+        span.className = "badge rounded-pill bg-primary mx-1 fs-5"
+        drawDiv.appendChild(span)
+        spans.append(span)
+
+    def animate_number(index):
+        if index >= len(spans):
+            return
+
+        span = spans[index]
+        count = 0
+
+        def show_random():
+            nonlocal count
+            if count < 3:
+                rand_num = randint(1, 49)
+                span.textContent = str(rand_num)
+                count += 1
+                showRandom = create_proxy(show_random)
+                setTimeout(showRandom, 300)
+            else:
+                span.textContent = str(final_numbers[index])
+                showDrawingProxy = create_proxy(lambda: animate_number(index + 1))
+                setTimeout(showDrawingProxy, 300)
+
+        show_random()
+
+    animate_number(0)

@@ -1,28 +1,48 @@
 # 🎲 PyScript Lottery App
 
-Edukacyjna aplikacja loteryjna stworzona w HTML + Python z wykorzystaniem **PyScript** oraz **Bootstrap 5**. Projekt ma na celu naukę podstaw programowania, klas, oraz interakcji z interfejsem webowym bez użycia JavaScript.
+Edukacyjna aplikacja loteryjna zbudowana w HTML + Python przy użyciu **PyScript** i **Bootstrap 5**. Projekt pokazuje, jak stworzyć nowoczesną aplikację webową bez użycia JavaScript — wykorzystując tylko Pythona w przeglądarce.
 
 ---
 
 ## 📘 Opis
 
-Ta aplikacja umożliwia użytkownikowi:
-- Wpisanie 6 szczęśliwych liczb
-- Losowanie liczb w zakresie 1–49
-- Animację losowania i ocenę trafień
+Aplikacja umożliwia użytkownikowi:
+- Wpisanie 6 szczęśliwych liczb w zakresie 1–49
+- Animowane losowanie 6 liczb
+- Wyświetlenie trafień i komunikatu o wygranej
+- Ponowne losowanie lub powrót do ekranu wyboru
 
-Została zbudowana wyłącznie z HTML, CSS i Python (przez PyScript), co czyni ją idealnym przykładem edukacyjnej aplikacji webowej bez potrzeby korzystania z backendu czy bibliotek JS.
+Całość działa bez backendu i w pełni lokalnie — idealna do nauki podstaw logiki, pętli, zbiorów i obsługi interfejsu użytkownika w PyScript.
 
 ---
 
 ## 🚀 Funkcje
 
-- ✅ Dynamiczne przełączanie ekranów (start → wybór → wynik)
-- ✅ Obsługa klas Pythona do zarządzania ekranami i logiką
-- ✅ Użycie Bootstrapa do responsywnego i estetycznego interfejsu
-- ✅ Działa całkowicie lokalnie (nie wymaga instalacji Pythona)
+- ✅ Przejrzysty i responsywny interfejs dzięki Bootstrap 5
+- ✅ Duże pola i przyciski dostosowane do ekranów dotykowych
+- ✅ Dynamiczne przełączanie ekranów: wybór liczb ⇄ wyniki
+- ✅ Animowana prezentacja losowania (po jednej liczbie)
+- ✅ Informacja o wygranej, jeśli trafisz więcej niż 3 liczby
+- ✅ Całkowicie bez JavaScript – wszystko w Pythonie!
 
 ---
+
+## 🛠️ Technologie
+
+- 🐍 **Python** (PyScript)
+- 💡 **HTML5** + **Bootstrap 5**
+- 🎨 Responsywny interfejs bez dodatkowych frameworków JS
+
+---
+
+## 🎓 Dla kogo?
+
+- 👨‍💻 Dla osób uczących się Pythona i chcących zobaczyć go w praktyce webowej
+- 🧪 Dla nauczycieli jako materiał na lekcję o logice i pętlach
+- 🎮 Dla wszystkich, którzy chcą pobawić się w losowanie liczb!
+
+---
+
 
 ## 🧪 Demo
 
